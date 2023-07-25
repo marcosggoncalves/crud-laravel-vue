@@ -153,3 +153,5 @@ $  php artisan migrate
 $  php artisan db:seed  
 
 ```
+
+Caso você queira criar manualmente o banco, copie e cole o SQL que está na pasta 'mysql' [Swagger](https://github.com/marcosggoncalves/test-php-laravel/blob/master/mysql/create_tables.sql)
