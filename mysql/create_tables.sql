@@ -1,0 +1,32 @@
+CREATE DATABASE SYSTEM_PRODUCTS;
+
+USE SYSTEM_PRODUCTS;
+
+CREATE TABLE USERS(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    password VARCHAR(100),
+    email VARCHAR(50) UNIQUE,
+    created_at DATETIME DEFAULT NOW(), 
+    updated_at DATETIME DEFAULT NOW()
+);
+
+CREATE TABLE CATEGORIES(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    created_at DATETIME DEFAULT NOW(), 
+    updated_at DATETIME DEFAULT NOW()
+);
+
+CREATE TABLE PRODUCTS(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    category_id INT,
+    created_at DATETIME DEFAULT NOW(), 
+    updated_at DATETIME DEFAULT NOW(),
+
+    FOREIGN KEY(category_id) REFERENCES CATEGORIES(id) ON DELETE CASCADE
+);
+
+
+INSERT INTO users (name, password, email) VALUES ('Marcos Lopes', '$2y$10$/K6fmQtobXnFxcjlxX5peOsBxqcbvxb7ElyK7iObk5OSVwIFVEirK', 'marcoslopesg7@gmail.com');
