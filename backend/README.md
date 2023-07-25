@@ -15,12 +15,12 @@ Acessar documentação [Swagger](http://localhost:8000/api/documentation)
 
 Página que irá abrir:
 
-![Swagger](https://gitlab.com/MLopesG/teste-back-end/-/raw/main/imagens/TELA_1.png)
+![Swagger](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_1.png?raw=true)
 
 
 ### Modelagem do Banco(Lógico):
 
-![Diagrama de modelagem](https://gitlab.com/MLopesG/teste-back-end/-/raw/main/imagens/TELA_5.png)
+![Diagrama de modelagem](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_5.png?raw=true)
 
 Em questão da modelagem do banco de dados, foi definido o relacionamento entre as entidades.
 Nesse caso, Uma categoria pode pode ter varios produtos, e um produto pode pertencer a uma categoria. Ou seja, temos um relacionamento *(Categoria) 1 -> (Produtos) N*.
@@ -31,7 +31,7 @@ Não se esqueça de fazer o login para utilizar os endpoints:
 
 1º Passo(Autenticar com seu usuário e senha):
 
-![Swagger](https://gitlab.com/MLopesG/teste-back-end/-/raw/main/imagens/TELA_2.png)
+![Swagger](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_2.png?raw=true)
 
 Copie o token gerado:
 
@@ -54,7 +54,7 @@ Copie o token gerado:
 
 2º Passo(Cole o token para autorizar acesso):
 
-![Swagger](https://gitlab.com/MLopesG/test-php-laravel/-/raw/main/imagens/TELA_3.png)
+![Swagger](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_3.png?raw=true)
 
 ## Iniciando Aplicação
 
@@ -121,7 +121,7 @@ $  php artisan test
 
 Exemplo:
 
-![Swagger](https://gitlab.com/MLopesG/system_products-/raw/main/imagens/TELA_4.png)
+![Swagger](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_4.png?raw=true)
 
 ### Observação: 
 
