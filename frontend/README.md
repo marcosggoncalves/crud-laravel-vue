@@ -1,6 +1,6 @@
 # Frontend - System
 
-## Instalar e executando o projeto:
+## Instalando e executando o projeto:
 
 ###  Instalar dependencias
 ```
@@ -14,7 +14,7 @@ npm run dev
 
 ### Acessar APP na porta: 3000
 
-[Abrir Navgeador](http://localhost:3000)
+[Abrir Navegador](http://localhost:3000)
 
 ### Tela Inicial:
 
