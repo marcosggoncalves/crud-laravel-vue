@@ -70,7 +70,7 @@ class UserController extends Controller
             return Response([
                 'status' => false,
                 'message' => 'Não foi possivel listar users!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
@@ -119,7 +119,7 @@ class UserController extends Controller
 
             if ($validator->fails()) {
                 return  Response([
-                    'status' => true,
+                    'status' => false,
                     'message' => 'Não foi possivel cadastrar usuário!',
                     'error' => $validator->errors()
                 ], 417);
@@ -136,7 +136,7 @@ class UserController extends Controller
             return Response([
                 'status' => false,
                 'message' => 'Não foi possivel realizar cadastro!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
@@ -192,7 +192,7 @@ class UserController extends Controller
 
             if ($validator->fails()) {
                 return  Response([
-                    'status' => true,
+                    'status' => false,
                     'message' => 'Não foi possivel alterar cadastro!',
                     'error' => $validator->errors()
                 ], 417);
@@ -208,7 +208,7 @@ class UserController extends Controller
             return Response([
                 'status' => false,
                 'message' => 'Não foi possivel alterar cadastro!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
@@ -261,7 +261,7 @@ class UserController extends Controller
             return Response()->json([
                 'status' => false,
                 'message' => 'Não foi possivel excluir usuário!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }

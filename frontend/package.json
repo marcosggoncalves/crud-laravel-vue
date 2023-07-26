@@ -13,8 +13,10 @@
     "axios": "^1.4.0",
     "core-js": "^3.29.0",
     "roboto-fontface": "*",
+    "sweetalert2": "^11.7.20",
     "vue": "^3.2.0",
     "vue-router": "^4.0.0",
+    "vue-toastification": "^2.0.0-rc.5",
     "vuetify": "^3.0.0",
     "webfontloader": "^1.0.0"
   },

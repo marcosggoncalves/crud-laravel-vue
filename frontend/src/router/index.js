@@ -1,24 +1,48 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router';
-import Default from '@/layouts/default/Default.vue';
-import Home from '@/views/Home.vue';
+import Usuarios from '@/views/Users.vue';
 import Categories from '@/views/Categories.vue';
 import Products from '@/views/Products.vue';
+import Login from '@/views/Login.vue';
+import Home from '@/views/Home.vue';
+
+const auth = async (to, from, next) => {
+  let token = window.localStorage.getItem('token_');
+
+  if (!token) {
+    return next('/login');
+  }
+
+  next();
+};
 
 const routes = [
   {
+    path: '/login',
+    component: () => Login,
+    meta: {
+      allowAnonymous: true
+    }
+  },
+  {
+    path: '/users',
+    component: () => Usuarios,
+    beforeEnter: auth
+  },
+  {
     path: '/',
-    component: () => Home
+    component: () => Home,
+    beforeEnter: auth
   },
   {
     path: '/categories',
     component: () => Categories,
-    children: [],
+    beforeEnter: auth
   },
   {
     path: '/products',
     component: () => Products,
-    children: [],
+    beforeEnter: auth
   },
 ]
 

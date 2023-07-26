@@ -9,7 +9,7 @@ class CategoryRepository implements CategoryInterface
 {
     public function index()
     {
-        return Category::orderBy('name')->paginate(15);
+        return Category::all();
     }
 
     public function store(array $body)

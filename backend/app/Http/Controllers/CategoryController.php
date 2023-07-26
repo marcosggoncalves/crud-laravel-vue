@@ -69,7 +69,7 @@ class CategoryController extends Controller
             return Response([
                 'status' => false,
                 'message' => 'Não foi possivel listar categories!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
@@ -114,7 +114,7 @@ class CategoryController extends Controller
 
             if ($validator->fails()) {
                 return  Response([
-                    'status' => true,
+                    'status' => false,
                     'message' => 'Não foi possivel cadastrar nova categoria!',
                     'error' => $validator->errors()
                 ], 417);
@@ -131,7 +131,7 @@ class CategoryController extends Controller
             return Response([
                 'status' => false,
                 'message' => 'Não foi possivel cadastrar nova categoria!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
@@ -177,7 +177,7 @@ class CategoryController extends Controller
 
             if ($validator->fails()) {
                 return  Response([
-                    'status' => true,
+                    'status' => false,
                     'message' => 'Não foi possivel alterar informações cadastrais da categoria!',
                     'error' => $validator->errors()
                 ], 417);
@@ -193,7 +193,7 @@ class CategoryController extends Controller
             return Response([
                 'status' => false,
                 'message' => 'Não foi possivel alterar informações cadastrais da categoria!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
@@ -246,7 +246,7 @@ class CategoryController extends Controller
             return Response()->json([
                 'status' => false,
                 'message' => 'Não foi possivel excluir categoria!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }

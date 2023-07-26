@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" max-width="450">
+    <v-dialog v-model="dialog" max-width="900">
       <v-card>
         <v-card-title
           ><b>{{
@@ -10,10 +10,10 @@
         <v-divider></v-divider>
         <v-form ref="form" class="pa-5">
           <v-row density="compact">
-            <v-col cols="12" md="12">
+            <v-col cols="12" md="4">
               <v-text-field
                 color="#DBA901"
-                label="Produto(Descrição):"
+                label="Usuário:"
                 required
                 variant="outlined"
                 density="compact"
@@ -21,19 +21,28 @@
                 :error-messages="error.name"
               ></v-text-field>
             </v-col>
-            <v-col cols="12" md="12">
-              <v-autocomplete
-                label="Categoria"
-                required
+            <v-col cols="12" md="4">
+              <v-text-field
                 color="#DBA901"
+                label="Senha:"
+                required
+                type="password"
                 variant="outlined"
                 density="compact"
-                :items="categories"
-                item-title="name"
-                v-model="cadastro.category_id"
-                :error-messages="error.category_id"
-                item-value="id"
-              ></v-autocomplete>
+                :error-messages="error.password"
+                v-model="cadastro.password"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4">
+              <v-text-field
+                color="#DBA901"
+                label="Email:"
+                variant="outlined"
+                density="compact"
+                required
+                :error-messages="error.email"
+                v-model="cadastro.email"
+              ></v-text-field>
             </v-col>
           </v-row>
           <v-btn
@@ -48,9 +57,11 @@
         </v-form>
       </v-card>
     </v-dialog>
-    <v-card dense title="Produtos" subtitle="Linha de produtos cadastrados!">
+    <v-card dense title="Usuários" subtitle="Todas usuários cadastradas!">
       <v-card-actions>
-        <v-btn color="orange" @click="dialogOpen">Adicionar Novo Produto</v-btn>
+        <v-btn color="orange" @click="dialogOpen">
+          Adicionar Novo Usuário</v-btn
+        >
       </v-card-actions>
       <center v-if="carregamento" class="pa-10">
         <v-progress-circular
@@ -60,45 +71,44 @@
         ></v-progress-circular>
       </center>
       <div v-else>
-        <Table :columns="columns" :data="products" :actions="actions"> </Table>
+        <Table :columns="columns" :data="users" :actions="actions"> </Table>
         <div class="pa-4">
           <v-pagination
             color="#DBA901"
             v-model="pagination.page"
             :length="pagination.length"
             :total-visible="pagination.total"
-            @update:model-value="getProducts"
+            @update:model-value="getUser"
           ></v-pagination>
         </div>
       </div>
     </v-card>
   </div>
 </template>
-    
+
 <script setup>
 import Table from "@/components/Table.vue";
 import Swal from "sweetalert2";
 import { onMounted, reactive, ref } from "vue";
-import {
-  getProductsList,
-  productPost,
-  productDelete,
-} from "@/services/Products";
+import { getUsersList, userPost, userDelete } from "@/services/Users";
 
-import { getCategoriesList } from "@/services/Categories";
-
+const users = ref([]);
 const error = ref({});
 const dialog = ref(false);
-const products = ref([]);
-const categories = ref([]);
 const carregamento = ref(true);
-const cadastro = reactive({ name: null });
+
 const pagination = reactive({ page: 1, length: 2, total: 10 });
+
+const cadastro = reactive({
+  name: null,
+  email: null,
+  password: null,
+});
 
 const columns = [
   { name: "ID", column: "id" },
-  { name: "Produto", column: "name" },
-  { name: "Categoria", column: "category", sub_column: "name" },
+  { name: "Usuário", column: "name" },
+  { name: "E-mail", column: "email" },
 ];
 
 const actions = [
@@ -107,41 +117,37 @@ const actions = [
 ];
 
 function dialogOpen() {
+  cadastro.email = null;
   cadastro.name = null;
-  cadastro.category_id = null;
+  cadastro.password = null;
   cadastro.id = undefined;
 
   error.value = {};
   dialog.value = !dialog.value;
 }
 
-function getCategories() {
-  getCategoriesList().then((result) => {
-    categories.value = result.categories;
-  });
-}
-
-function getProducts(page = 1) {
+function getUser(page = 1) {
   carregamento.value = true;
 
-  getProductsList(page).then((result) => {
-    products.value = result.products.data;
-    pagination.length = result.products.last_page;
-    pagination.total = result.products.total;
-    pagination.page = result.products.current_page;
+  getUsersList(page).then((result) => {
+    users.value = result.users.data;
+    pagination.length = result.users.last_page;
+    pagination.total = result.users.total;
+    pagination.page = result.users.current_page;
     carregamento.value = false;
   });
 }
 
 function editar(item) {
   cadastro.id = item.id;
-  cadastro.category_id = item.category_id;
+  cadastro.email = item.email;
   cadastro.name = item.name;
+  cadastro.password = item.password;
   dialog.value = true;
 }
 
 function salvar() {
-  productPost(cadastro)
+  userPost(cadastro)
     .then((result) => {
       Swal.fire({
         icon: "success",
@@ -152,7 +158,7 @@ function salvar() {
 
       dialogOpen();
 
-      getProducts();
+      getUser();
     })
     .catch((e) => {
       if (e.response && e.response.data) {
@@ -163,8 +169,8 @@ function salvar() {
 
 function deletar(item) {
   Swal.fire({
-    title: "Excluir Produto!",
-    text: "Deseja excluir essa produto? Tem Certeza?",
+    title: "Excluir Usuário!",
+    text: "Deseja excluir o cadastro desse usuário? Tem Certeza?",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#DBA901",
@@ -172,7 +178,7 @@ function deletar(item) {
     confirmButtonText: "Sim, pode excluir",
   }).then((result) => {
     if (result.isConfirmed) {
-      productDelete(item.id)
+      userDelete(item.id)
         .then((result) => {
           Swal.fire({
             icon: "success",
@@ -181,7 +187,7 @@ function deletar(item) {
             timer: 1500,
           });
 
-          getProducts();
+          getUser();
         })
         .catch((e) => {
           Swal.fire({
@@ -195,9 +201,5 @@ function deletar(item) {
   });
 }
 
-onMounted(async () => {
-  await getProducts();
-  await getCategories();
-});
+onMounted(async () => await getUser());
 </script>
-    

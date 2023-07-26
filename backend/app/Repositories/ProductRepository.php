@@ -9,7 +9,7 @@ class ProductRepository implements ProductInterface
 {
     public function index()
     {
-        return Product::orderBy('name')->paginate(15);
+        return Product::orderBy('name')->with(['category'])->paginate(15);
     }
 
     public function store(array $body)

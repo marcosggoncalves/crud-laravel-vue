@@ -69,7 +69,7 @@ class ProductController extends Controller
             return Response([
                 'status' => false,
                 'message' => 'Não foi possivel listar products!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
@@ -111,12 +111,12 @@ class ProductController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string',
-                'category_id' => 'required|number'
+                'category_id' => 'required'
             ]);
 
             if ($validator->fails()) {
                 return  Response([
-                    'status' => true,
+                    'status' => false,
                     'message' => 'Não foi possivel cadastrar novo produto!',
                     'error' => $validator->errors()
                 ], 417);
@@ -133,7 +133,7 @@ class ProductController extends Controller
             return Response([
                 'status' => false,
                 'message' => 'Não foi possivel cadastrar novo produto!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
@@ -183,12 +183,12 @@ class ProductController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string',
-                'category_id' => 'required|number'
+                'category_id' => 'required'
             ]);
 
             if ($validator->fails()) {
                 return  Response([
-                    'status' => true,
+                    'status' => false,
                     'message' => 'Não foi possivel alterar informações cadastrais do produto!',
                     'error' => $validator->errors()
                 ], 417);
@@ -204,7 +204,7 @@ class ProductController extends Controller
             return Response([
                 'status' => false,
                 'message' => 'Não foi possivel alterar informações cadastrais do produto!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
@@ -257,7 +257,7 @@ class ProductController extends Controller
             return Response()->json([
                 'status' => false,
                 'message' => 'Não foi possivel excluir produto!',
-                'error' => $e
+                'error' => $e->__toString()
             ], 500);
         }
     }
