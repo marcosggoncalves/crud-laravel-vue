@@ -13,6 +13,17 @@ E-mail: marcoslopesg7@gmail.com
 Senha: 1234
 ```
 
+## Informações Gerais
+
+Tecnologias utilizadas:
+
+    - Vue 3 com Vuetify
+    - Laravel(9)/Mysql
+        - Auth(JWt)
+        - Migrations
+        - Validations
+        - Seed
+
 ### Tela Inicial(Login):
 
 ![TELA_6](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_6.png?raw=true)
