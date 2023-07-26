@@ -1,57 +1,18 @@
-# base
+# Frontend - System
 
-## Project setup
-
-```
-# yarn
-yarn
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
-
-### Compiles and hot-reloads for development
+###  Instalar dependencias do projeto
 
 ```
-# yarn
-yarn dev
+npm install 
 
-# npm
+```
+### Compilar/executar projeto
+
+```
 npm run dev
 
-# pnpm
-pnpm dev
 ```
 
-### Compiles and minifies for production
+### Acessar APP
 
-```
-# yarn
-yarn build
-
-# npm
-npm run build
-
-# pnpm
-pnpm build
-```
-
-### Lints and fixes files
-
-```
-# yarn
-yarn lint
-
-# npm
-npm run lint
-
-# pnpm
-pnpm lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://vitejs.dev/config/).
+[Abrir Navgeador](http://localhost:3000)
