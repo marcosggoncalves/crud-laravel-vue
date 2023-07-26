@@ -13,9 +13,9 @@ E-mail: marcoslopesg7@gmail.com
 Senha: 1234
 ```
 
-## Informações Gerais
+## Ficha Técnica
 
-Tecnologias utilizadas:
+Tecnologias:
 
     - Vue 3 com Vuetify
     - Laravel(9)/Mysql
@@ -23,6 +23,8 @@ Tecnologias utilizadas:
         - Migrations
         - Validations
         - Seed
+        - Unit Test
+    
 
 ### Tela Inicial(Login):
 
