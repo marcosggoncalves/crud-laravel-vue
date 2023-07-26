@@ -4,15 +4,13 @@
 
 ```
 npm install 
-
 ```
 ### Compilar/executar projeto
 
 ```
 npm run dev
-
 ```
 
-### Acessar APP
+### Acessar APP na porta: 3000
 
 [Abrir Navgeador](http://localhost:3000)
