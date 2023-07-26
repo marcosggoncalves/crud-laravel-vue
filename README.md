@@ -2,7 +2,7 @@
 
 ## Acessar APP
 
-Caso preferir testar à aplicação hospedada, pode ser o link abaixo:
+Caso preferir testar a aplicação hospedada, pode ser o link abaixo:
 
 [Abrir Navegador](http://sistemadourados.ddns.net:8008)
 
