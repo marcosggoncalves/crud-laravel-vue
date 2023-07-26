@@ -30,7 +30,7 @@ function sair() {
     showCancelButton: true,
     confirmButtonColor: "#DBA901",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Sim, pode excluir",
+    confirmButtonText: "Sim, pode finalizar",
   }).then((result) => {
     if (result.isConfirmed) {
       window.localStorage.clear();

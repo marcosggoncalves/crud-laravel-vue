@@ -332,4 +332,44 @@ class UserController extends Controller
             'usuario' => $usuario,
         ]);
     }
+    /**
+     * @OA\Post(
+     *      path="/api/v1/users/login-check",
+     *      operationId="users_auth_check",
+     *      tags={"users_auth"},
+     *      summary="Verificar Token",
+     *      description="Verificar Token",
+     *      security={{"bearerAuth":{}}},
+     *      @OA\Response(
+     *          response=200,
+     *          description="Tudo certo!",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *          )
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Não autorizado, login é necessário . ",
+     *          @OA\MediaType(
+     *              mediaType="application/json",
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=500,
+     *          description="Erro interno!",
+     *           @OA\MediaType(
+     *              mediaType="application/json",
+     *          )
+     *      )
+     *   )
+     */
+    public function check()
+    {
+        if (Auth::check()) {
+            return response()->json([
+                'status' => true,
+                'message' => "Token válido"
+            ]);
+        }
+    }
 }

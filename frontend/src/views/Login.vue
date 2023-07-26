@@ -43,14 +43,12 @@
 
 <script setup>
 import Swal from "sweetalert2";
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import { authLogin } from "@/services/UsersAuth";
-import { useRouter } from "vue-router";
 
 const error = ref({});
 const carregamento = ref(false);
 const login = reactive({ email: null, password: null });
-const router = useRouter();
 
 function entrar() {
   carregamento.value = true;
@@ -59,8 +57,7 @@ function entrar() {
     .then((result) => {
       window.localStorage.setItem("token_", result.token);
       window.localStorage.setItem("user", JSON.stringify(result.usuario));
-      router.push({ path: "/" });
-
+      window.location.href = "/";
       carregamento.value = false;
     })
     .catch((e) => {
@@ -70,15 +67,17 @@ function entrar() {
         return;
       }
 
+      error.value = {};
+      carregamento.value = false;
+
       Swal.fire({
         icon: "error",
         title: e.response.data.message,
         showConfirmButton: false,
         timer: 1500,
       });
-
-      error.value = {};
-      carregamento.value = false;
     });
 }
+
+onMounted(() => window.localStorage.clear());
 </script>

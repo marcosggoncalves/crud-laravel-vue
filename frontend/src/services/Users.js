@@ -7,8 +7,11 @@ export async function getUsersList(page = 1) {
 
 export async function userPost(body) {
     const method = body.id != null ? 'put' : 'post';
+
     const url = body.id != null ? `/users/${body.id}` : '/users';
+
     const response = await axios[method](url, body);
+    
     return response.data;
 }
 

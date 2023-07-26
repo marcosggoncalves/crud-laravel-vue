@@ -7,8 +7,11 @@ export async function getProductsList(page = 1) {
 
 export async function productPost(body) {
     const method = body.id != null ? 'put' : 'post';
+
     const url = body.id != null ? `/products/${body.id}` : '/products';
+
     const response = await axios[method](url, body);
+    
     return response.data;
 }
 

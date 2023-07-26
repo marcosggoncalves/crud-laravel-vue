@@ -25,3 +25,4 @@ Route::group(['prefix' => 'v1'], function () {
 });
 
 Route::post('/v1/users/login', [UserController::class, 'login']);
+Route::post('/v1/users/login-check', [UserController::class, 'check']);

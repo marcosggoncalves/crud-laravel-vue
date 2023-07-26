@@ -635,6 +635,41 @@
                     }
                 }
             }
+        },
+        "/api/v1/users/login-check": {
+            "post": {
+                "tags": [
+                    "users_auth"
+                ],
+                "summary": "Verificar Token",
+                "description": "Verificar Token",
+                "operationId": "users_auth_check",
+                "responses": {
+                    "200": {
+                        "description": "Tudo certo!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado, login é necessário . ",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "500": {
+                        "description": "Erro interno!",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
