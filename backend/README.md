@@ -15,7 +15,7 @@ Acessar documentação [Swagger](http://localhost:8000/api/documentation)
 
 Página que irá abrir:
 
-![Swagger](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_1.png?raw=true)
+![TELA_1](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_1.png?raw=true)
 
 
 ### Modelagem do Banco(Lógico):
@@ -31,7 +31,7 @@ Não se esqueça de fazer o login para utilizar os endpoints:
 
 1º Passo(Autenticar com seu usuário e senha):
 
-![Swagger](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_2.png?raw=true)
+![TELA_2](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_2.png?raw=true)
 
 Copie o token gerado:
 
@@ -54,7 +54,7 @@ Copie o token gerado:
 
 2º Passo(Cole o token para autorizar acesso):
 
-![Swagger](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_3.png?raw=true)
+![TELA_3](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_3.png?raw=true)
 
 ## Iniciando Aplicação
 
@@ -121,7 +121,7 @@ $  php artisan test
 
 Exemplo:
 
-![Swagger](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_4.png?raw=true)
+![TELA_4](https://github.com/marcosggoncalves/test-php-laravel/blob/master/backend/imagens/TELA_4.png?raw=true)
 
 ### Observação: 
 
