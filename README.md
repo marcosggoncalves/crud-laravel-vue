@@ -22,8 +22,9 @@ Tecnologias:
         - Auth(JWt)
         - Migrations
         - Validations
-        - Seed
-        - Unit Test
+        - Seeds
+        - Paginations
+        - UnitTest
     
 
 ### Tela Inicial(Login):
